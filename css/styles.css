@@ -115,8 +115,9 @@ body.ready .facts{transition-delay:.25s}
 .what h2{margin:0 0 18px;color:var(--red-h);font-size:clamp(30px,3vw,40px);line-height:1.05;font-weight:700;letter-spacing:.6px}
 .what__intro{margin:0;font-size:16px;line-height:1.55;max-width:36em;color:var(--ink-2)}
 .services{margin-top:48px;display:grid;grid-template-columns:1fr 1fr;column-gap:52px;row-gap:44px;max-width:700px}
-.service{display:grid;grid-template-columns:64px 1fr;gap:22px;align-items:start}
-.service img{width:64px;height:auto}
+.service{display:grid;grid-template-columns:76px 1fr;gap:22px;align-items:start}
+/* Ícono dentro de un marco negro muy delgado (1px) */
+.service img{width:76px;height:76px;padding:12px;border:1px solid #1d1d1f;object-fit:contain;box-sizing:border-box}
 .service h3{margin:2px 0 10px;font-size:16px;line-height:1.1;font-weight:700;letter-spacing:.4px}
 .service p{margin:0;font-size:15px;line-height:1.5;color:var(--ink-2)}
 .what__visual{justify-self:start;width:min(680px,48vw);margin-left:-20px}
@@ -430,7 +431,7 @@ body.ready .facts{transition-delay:.25s}
   .what__inner,.why__inner,.backing__inner,.contact__inner,.project__inner,.projects-band__inner,.projects-index,.footer__inner{width:calc(100% - 40px)}
   .what__inner{padding:72px 0}
   .services{grid-template-columns:1fr;row-gap:30px;margin-top:36px}
-  .service{grid-template-columns:52px 1fr;gap:16px}.service img{width:52px}
+  .service{grid-template-columns:62px 1fr;gap:16px}.service img{width:62px;height:62px;padding:10px}
   .projects-band__inner{flex-direction:column;align-items:flex-start;gap:18px}
   .projects-index{grid-template-columns:1fr}
   .projects-index li+li a{padding-left:0;border-left:0;border-top:1px solid rgba(255,255,255,.3)}

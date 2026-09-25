@@ -31,7 +31,8 @@
     header.classList.toggle('scrolled', y > 8);
     if (bg && !reduce && y < innerHeight) bg.style.translate = `0 ${y * 0.075}px`;
   };
-  addEventListener('scroll', onScroll, { passive: true }); onScroll();
+  let rnUpdate = null, ticking = false;
+  addEventListener('scroll', () => { if (ticking) return; ticking = true; requestAnimationFrame(() => { rnUpdate && rnUpdate(); onScroll(); ticking = false; }); }, { passive: true }); onScroll();
 
   /* Desplegables del menú: hover en escritorio, clic/teclado en el chevron */
   const items = $$('.nav__item');
@@ -133,7 +134,7 @@
       const nearFooter = footer.getBoundingClientRect().top < innerHeight - 40;
       rn.classList.toggle('is-hidden', scrollY < innerHeight * 0.6 || nearFooter);
     };
-    update(); addEventListener('scroll', update, { passive: true }); addEventListener('resize', update, { passive: true });
+    rnUpdate = update; update(); addEventListener('resize', update, { passive: true });
     topBtn.addEventListener('click', () => { scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); $('.logo').focus({ preventScroll: true }); });
   }
 

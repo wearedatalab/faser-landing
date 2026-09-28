@@ -13,7 +13,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 PREVIEW = 'https://wearedatalab.github.io/faser-landing/'
 FOLDER = os.environ.get('FASER_FOLDER', 'landing')
 BASE = os.environ.get('FASER_BASE', f'https://fasergroup.com/{FOLDER}/')
-LEADS_TO = [e.strip() for e in os.environ.get('LEADS_TO', 'juan.garcia@wearedatalab.co').split(',') if e.strip()]
+LEADS_TO = [e.strip() for e in os.environ.get('LEADS_TO', 'Info@fasergroup.com,juan.garcia@wearedatalab.co').split(',') if e.strip()]
 FROM_EMAIL = os.environ.get('FROM_EMAIL', 'no-reply@fasergroup.com')
 VERSION = datetime.datetime.now().strftime('%Y%m%d%H%M')
 

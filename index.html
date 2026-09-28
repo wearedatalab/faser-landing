@@ -352,7 +352,7 @@
         <p class="contact__intro">Tell us about your project or interest. Our team replies within one business day.</p>
       </header>
 
-      <form class="form" id="contact-form" novalidate>
+      <form class="form" id="contact-form" action="send.php" method="post" novalidate>
         <div class="field">
           <label for="name">Full name</label>
           <input id="name" name="name" autocomplete="name" required aria-describedby="name-err">
@@ -404,7 +404,7 @@
           <input id="website" name="website" tabindex="-1" autocomplete="off">
         </div>
         <div class="field field--full">
-          <label class="consent"><input type="checkbox" id="consent" required aria-describedby="consent-err"><span>I agree that FASER GROUP may use my details to reply to this message.</span></label>
+          <label class="consent"><input type="checkbox" id="consent" name="consent" value="yes" required aria-describedby="consent-err"><span>I agree that FASER GROUP may use my details to reply to this message.</span></label>
           <span class="field__err" id="consent-err" aria-live="polite"></span>
         </div>
         <div class="field--full form__submit">

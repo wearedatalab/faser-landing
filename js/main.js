@@ -11,14 +11,19 @@
     based: 'Elige dónde te encuentras.', interest: 'Elige qué te interesa.', message: 'Escribe un mensaje corto.',
     consent: 'Confirma que podemos usar tus datos para responderte.',
     hi: 'Hola FASER GROUP, soy', interestL: 'Me interesa', basedL: 'Ubicación', emailL: 'Correo', phoneL: 'Teléfono/WhatsApp', prefL: 'Prefiero que me contacten por',
-    ok: 'Gracias por escribir a FASER GROUP. Nuestro equipo te responderá en un día hábil. Si WhatsApp no se abrió, ', okLink: 'envíalo por correo', subject: 'Consulta desde el sitio web — '
+    ok: 'Gracias por escribir a FASER GROUP. Nuestro equipo te responderá en un día hábil. Si WhatsApp no se abrió, ', okLink: 'correo', subject: 'Consulta desde el sitio web — ',
+    sentTitle: 'Mensaje enviado', sent: 'Gracias por escribir a FASER GROUP. Nuestro equipo te responderá en un día hábil.', sending: 'ENVIANDO…',
+    errTitle: 'Intenta de nuevo más tarde', fallTitle: 'Envía tu mensaje', fall: 'No pudimos enviarlo desde aquí. Ya lo dejamos escrito, envíalo por', rate: 'Recibimos varios mensajes desde tu conexión. Escríbenos por'
   } : {
     name: 'Please enter your full name.', email: 'Please enter a valid email.', phone: 'Please enter a phone or WhatsApp number.',
     based: 'Please choose where you are based.', interest: 'Please choose what you are interested in.', message: 'Please write a short message.',
     consent: 'Please confirm we may use your details to reply.',
     hi: "Hi FASER GROUP, I'm", interestL: 'Interested in', basedL: 'Based in', emailL: 'Email', phoneL: 'Phone/WhatsApp', prefL: 'Best way to reach me',
-    ok: 'Thanks for writing to FASER GROUP. Our team will reply within one business day. If WhatsApp did not open, ', okLink: 'send it by email', subject: 'Website inquiry — '
+    ok: 'Thanks for writing to FASER GROUP. Our team will reply within one business day. If WhatsApp did not open, ', okLink: 'email', subject: 'Website inquiry — ',
+    sentTitle: 'Message sent', sent: 'Thanks for writing to FASER GROUP. Our team will reply within one business day.', sending: 'SENDING…',
+    errTitle: 'Please try again later', fallTitle: 'Send your message', fall: 'We could not send it from here. It is ready to go, send it by', rate: 'We received several messages from your connection. Please write to us on'
   };
+  const loadedAt = Date.now();
   root.classList.remove('no-js');
 
   /* Entrada del hero */
@@ -157,11 +162,24 @@
       const v = (id) => $('#' + id).value.trim();
       const pref = $('input[name="contact_pref"]:checked', form).value;
       const text = `${T.hi} ${v('name')}${v('company') ? ' (' + v('company') + ')' : ''}.\n${T.interestL}: ${v('interest')}\n${T.basedL}: ${v('based')}\n${T.emailL}: ${v('email')}\n${T.phoneL}: ${v('phone')}\n${T.prefL}: ${pref}\n\n${v('message')}`;
-      const ok = $('.form__ok', form);
-      $('p', ok).innerHTML = `${T.ok}<a href="mailto:info@fasergroup.com?subject=${encodeURIComponent(T.subject + v('interest'))}&body=${encodeURIComponent(text)}">${T.okLink}</a>.`;
-      ok.hidden = false;
-      window.open(`https://wa.me/${WA}?text=${encodeURIComponent(text)}`, '_blank', 'noopener');
-      ok.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
+      const ok = $('.form__ok', form), btn = $('.send-btn', form), label = $('span', btn), label0 = label.textContent;
+      const show = (title, html) => { $('strong', ok).textContent = title; $('p', ok).innerHTML = html; ok.hidden = false; ok.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' }); };
+      // Respaldo cuando no hay servidor (vista previa estática) o el envío falla: WhatsApp prellenado + correo
+      const fallback = () => show(T.fallTitle, `${T.fall} <a href="https://wa.me/${WA}?text=${encodeURIComponent(text)}" target="_blank" rel="noopener">WhatsApp</a> · <a href="mailto:info@fasergroup.com?subject=${encodeURIComponent(T.subject + v('interest'))}&body=${encodeURIComponent(text)}">${T.okLink}</a>.`);
+      const data = new FormData(form);
+      data.append('t', String(loadedAt)); data.append('lang', ES ? 'es' : 'en');
+      data.append('page', location.href); data.append('referrer', d.referrer || '');
+      btn.disabled = true; label.textContent = T.sending; ok.hidden = true;
+      fetch(form.getAttribute('action'), { method: 'POST', body: data, headers: { Accept: 'application/json' } })
+        .then(r => r.json().catch(() => ({ ok: false, error: 'http' })).then(j => ({ status: r.status, j })))
+        .then(({ status, j }) => {
+          if (j.ok) { form.reset(); show(T.sentTitle, T.sent); return; }
+          if (j.error === 'validation') { (j.fields || []).forEach(id => { const f = $('#' + id); if (f) check(f); }); const f = $('#' + (j.fields || [])[0]); if (f) f.focus(); return; }
+          if (status === 429) { show(T.errTitle, `${T.rate} <a href="https://wa.me/${WA}?text=${encodeURIComponent(text)}" target="_blank" rel="noopener">WhatsApp</a>.`); return; }
+          fallback();
+        })
+        .catch(fallback)
+        .finally(() => { btn.disabled = false; label.textContent = label0; });
     });
   }
 

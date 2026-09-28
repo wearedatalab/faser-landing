@@ -324,7 +324,7 @@
 <h2 id="contact-title">CONSTRUYAMOS ALGO JUNTOS</h2>
 <p class="contact__intro">Cuéntanos sobre tu proyecto o lo que te interesa. Nuestro equipo te responde en un día hábil.</p>
 </header>
-<form class="form" id="contact-form" novalidate="">
+<form action="../send.php" class="form" id="contact-form" method="post" novalidate="">
 <div class="field">
 <label for="name">Nombre completo</label>
 <input aria-describedby="name-err" autocomplete="name" id="name" name="name" required=""/>
@@ -376,7 +376,7 @@
 <input autocomplete="off" id="website" name="website" tabindex="-1"/>
 </div>
 <div class="field field--full">
-<label class="consent"><input aria-describedby="consent-err" id="consent" required="" type="checkbox"/><span>Autorizo a FASER GROUP a usar mis datos para responder este mensaje.</span></label>
+<label class="consent"><input aria-describedby="consent-err" id="consent" name="consent" required="" type="checkbox" value="yes"/><span>Autorizo a FASER GROUP a usar mis datos para responder este mensaje.</span></label>
 <span aria-live="polite" class="field__err" id="consent-err"></span>
 </div>
 <div class="field--full form__submit">

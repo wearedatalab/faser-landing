@@ -53,7 +53,7 @@ def rel(u):
     if not u or u.startswith(('#', 'http', 'mailto:', 'tel:', 'data:', '/', '../')): return u
     return '../' + u
 for tag in soup.find_all(True):
-    for a in ('src', 'href', 'data-lb'):
+    for a in ('src', 'href', 'data-lb', 'action'):
         if tag.get(a) is not None and not (tag.name == 'a' and 'lang' in (tag.parent.get('class') or [])):
             tag[a] = rel(tag[a])
     for a in ('srcset', 'imagesrcset'):

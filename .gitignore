@@ -2,3 +2,8 @@ _originales/
 __pycache__/
 dist/
 faser-landing-produccion.zip
+config.php
+_data/*.csv
+_data/*.json
+_data/*.log
+faser-landing-*.zip

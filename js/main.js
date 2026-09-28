@@ -103,9 +103,10 @@
   /* Galería de Duke Tower con visor */
   const lb = $('.lightbox'), items_lb = $$('[data-lb]');
   if (lb && items_lb.length) {
-    const img = $('img', lb), cap = $('figcaption', lb); let k = 0;
-    const show = (n) => { k = (n + items_lb.length) % items_lb.length; img.src = items_lb[k].dataset.lb; img.alt = $('img', items_lb[k]).alt; cap.textContent = `${items_lb[k].dataset.cap} · ${k + 1} / ${items_lb.length}`; };
-    items_lb.forEach((b, n) => b.addEventListener('click', () => { show(n); lb.showModal(); d.body.style.overflow = 'hidden'; }));
+    const img = $('img', lb), cap = $('figcaption', lb); let k = 0, list = items_lb;
+    // cada galería (Duke, Lotus, hotel) se recorre por separado
+    const show = (n) => { k = (n + list.length) % list.length; img.src = list[k].dataset.lb; img.alt = $('img', list[k]).alt; cap.textContent = `${list[k].dataset.cap} · ${k + 1} / ${list.length}`; };
+    items_lb.forEach((b) => b.addEventListener('click', () => { list = $$('[data-lb]', b.closest('.gallery-grid')); show(list.indexOf(b)); lb.showModal(); d.body.style.overflow = 'hidden'; }));
     // Deslizar con el dedo entre fotos
     let x0 = null, y0 = 0;
     lb.addEventListener('touchstart', (e) => { x0 = e.touches[0].clientX; y0 = e.touches[0].clientY; }, { passive: true });
@@ -120,7 +121,7 @@
     $('.lightbox__close', lb).addEventListener('click', () => lb.close());
     lb.addEventListener('click', (e) => { if (e.target === lb || e.target.tagName === 'FIGURE') lb.close(); });
     lb.addEventListener('keydown', (e) => { if (e.key === 'ArrowLeft') show(k - 1); if (e.key === 'ArrowRight') show(k + 1); });
-    lb.addEventListener('close', () => { d.body.style.overflow = ''; items_lb[k].focus({ preventScroll: true }); });
+    lb.addEventListener('close', () => { d.body.style.overflow = ''; list[k].focus({ preventScroll: true }); });
   }
 
   /* Control de lectura: anillo de progreso + volver arriba (oculto sobre el hero y el footer) */

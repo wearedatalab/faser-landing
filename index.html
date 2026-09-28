@@ -21,8 +21,8 @@
   <link rel="icon" type="image/png" href="img/favicon.png">
   <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-  <link rel="preload" as="image" href="img/hero-aerial-m.webp" media="(max-width: 760px) and (orientation: portrait)" fetchpriority="high">
-  <link rel="preload" as="image" href="img/hero-aerial.webp" media="(min-width: 761px), (orientation: landscape)" fetchpriority="high">
+  <link rel="preload" as="image" href="img/hero-guyana-m.webp" media="(max-width: 760px) and (orientation: portrait)" fetchpriority="high">
+  <link rel="preload" as="image" href="img/hero-guyana-1600.webp" imagesrcset="img/hero-guyana-1600.webp 1x, img/hero-guyana.webp 2x" media="(min-width: 761px), (orientation: landscape)" fetchpriority="high">
   <link rel="stylesheet" href="css/styles.css">
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"FASER GROUP","url":"https://wearedatalab.github.io/faser-landing/","logo":"https://wearedatalab.github.io/faser-landing/img/faser-group.png","email":"info@fasergroup.com","telephone":"+592 743 3853","description":"Private real estate developer in Georgetown, Guyana, with in-house design, engineering and construction.","address":{"@type":"PostalAddress","streetAddress":"304 Church Street, Queenstown","addressLocality":"Georgetown","addressCountry":"GY"},"parentOrganization":{"@type":"Organization","name":"Proyectamos y Edificamos","url":"https://proyectamosyedificamos.com/"},"areaServed":"Guyana"}</script>
 </head>
@@ -219,71 +219,88 @@
     </div>
   </article>
 
-  <!-- 03.2 Lotus Gardens -->
-  <article class="project project--split" id="lotus-gardens" aria-labelledby="lotus-title">
-    <div class="project__inner">
-      <div class="project__copy scroll-reveal">
+  <!-- 03.2 Lotus Gardens · misma estructura que Duke Tower (pedido del cliente, 26-09) -->
+  <article class="duke-project duke-project--alt project" id="lotus-gardens" aria-labelledby="lotus-title">
+    <div class="duke-project__inner">
+      <header class="duke-title scroll-reveal">
         <p class="project__num">PROJECT 02</p>
         <h3 id="lotus-title">LOTUS GARDENS</h3>
-        <p class="project__place">Ogle Corridor, East Coast Demerara</p>
-        <ul class="project__figures">
-          <li><b>35</b><span>acres</span></li>
-          <li><b>246</b><span>homes</span></li>
-          <li><b>1</b><span>commercial hub</span></li>
-        </ul>
-        <ol class="tracker tracker--left" aria-label="Project stage: permitting">
-          <li class="done">DESIGN</li>
-          <li class="now" aria-current="step">PERMITTING</li>
-          <li>PRE-SALES</li>
-          <li>CONSTRUCTION</li>
-          <li>DELIVERY</li>
-        </ol>
-        <p class="project__desc">A 35-acre gated, master-planned community with 246 homes, including single-family houses and condominiums, plus a commercial hub.</p>
-        <p class="project__role"><span>OUR ROLE</span> Developer, urban design, architecture and construction.</p>
-        <div class="duke-actions duke-actions--left">
+        <p>Ogle Corridor, East Coast Demerara</p>
+      </header>
+      <figure class="duke-hero scroll-reveal">
+        <img src="img/lotus-main.webp" srcset="img/lotus-main-800.webp 800w, img/lotus-main.webp 1400w" sizes="(max-width: 760px) 100vw, 980px" alt="Rendering of a Lotus Gardens home in stone, timber and render under a tree canopy" width="1400" height="830" loading="lazy" decoding="async">
+      </figure>
+
+      <ol class="tracker scroll-reveal" aria-label="Project stage: permitting">
+        <li class="done">DESIGN</li>
+        <li class="now" aria-current="step">PERMITTING</li>
+        <li>PRE-SALES</li>
+        <li>CONSTRUCTION</li>
+        <li>DELIVERY</li>
+      </ol>
+
+      <div class="duke-role scroll-reveal">
+        <h4>OUR ROLE</h4>
+        <p><strong>DEVELOPER, URBAN DESIGN, ARCHITECTURE AND CONSTRUCTION.</strong> A 35-acre gated, master-planned community with 246 homes, including single-family houses and condominiums, plus a commercial hub.</p>
+        <div class="duke-actions">
           <a class="duke-site" href="#contact" data-interest="Lotus Gardens"><span>REGISTER YOUR INTEREST</span><b aria-hidden="true">›</b></a>
+          <a class="duke-talk" href="https://wa.me/5927433853?text=Hi%20FASER%20GROUP%2C%20I%27d%20like%20to%20ask%20about%20Lotus%20Gardens." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>ASK ABOUT LOTUS GARDENS</span></a>
         </div>
       </div>
-      <figure class="project__visual placeholder scroll-reveal" aria-label="Lotus Gardens master plan coming soon">
-        <div class="placeholder__plan" aria-hidden="true">
-          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="currentColor" stroke-width="1"><path d="M0 60h400M0 150h400M0 240h400M80 0v300M200 0v300M320 0v300" opacity=".35"/><rect x="110" y="80" width="180" height="140" rx="70" opacity=".6"/><circle cx="200" cy="150" r="34" opacity=".8"/></g></svg>
+
+      <div class="project-gallery scroll-reveal">
+        <h4>PROJECT PHOTOS</h4>
+        <div class="gallery-grid">
+          <button class="g-item g-a" type="button" data-lb="img/lotus-dining.webp" data-cap="Double-height dining and living area"><img src="img/lotus-dining.webp" srcset="img/lotus-dining-600.webp 600w, img/lotus-dining.webp 1400w" sizes="(max-width: 760px) calc(50vw - 25px), 320px" alt="Lotus Gardens home interior with a double-height dining and living area" loading="lazy" decoding="async" width="1400" height="644"></button>
+          <button class="g-item g-b" type="button" data-lb="img/lotus-pool.webp" data-cap="Private pool and terrace"><img src="img/lotus-pool.webp" srcset="img/lotus-pool-600.webp 600w, img/lotus-pool.webp 1400w" sizes="(max-width: 760px) calc(50vw - 25px), 320px" alt="Lotus Gardens home with a private pool and terrace" loading="lazy" decoding="async" width="1400" height="830"></button>
+          <button class="g-item g-tower g-center" type="button" data-lb="img/lotus-aerial-lotus.webp" data-cap="Master-planned community"><img src="img/lotus-aerial-lotus.webp" srcset="img/lotus-aerial-lotus-600.webp 600w, img/lotus-aerial-lotus.webp 1400w" sizes="(max-width: 760px) calc(50vw - 25px), 300px" alt="Aerial view of the Lotus Gardens master-planned community and its central clubhouse" loading="lazy" decoding="async" width="1400" height="830"></button>
+          <button class="g-item g-c" type="button" data-lb="img/lotus-living.webp" data-cap="Living room open to the garden"><img src="img/lotus-living.webp" srcset="img/lotus-living-600.webp 600w, img/lotus-living.webp 1400w" sizes="(max-width: 760px) calc(50vw - 25px), 320px" alt="Lotus Gardens living room open to the garden and pool" loading="lazy" decoding="async" width="1400" height="774"></button>
+          <button class="g-item g-d" type="button" data-lb="img/lotus-aerial.webp" data-cap="Streets, homes and amenities"><img src="img/lotus-aerial.webp" srcset="img/lotus-aerial-600.webp 600w, img/lotus-aerial.webp 1400w" sizes="(max-width: 760px) calc(50vw - 25px), 320px" alt="Aerial view of Lotus Gardens streets, homes and amenities" loading="lazy" decoding="async" width="1400" height="781"></button>
         </div>
-        <figcaption><span class="placeholder__tag">MASTER PLAN</span><strong>Coming soon</strong><small>246 homes · 35 acres · Ogle Corridor</small></figcaption>
-      </figure>
+        <p class="render-note">Renderings are illustrative.</p>
+      </div>
     </div>
   </article>
 
-  <!-- 03.3 International dual-brand hotel -->
-  <article class="project project--split project--flip" id="hotel" aria-labelledby="hotel-title">
-    <div class="project__inner">
-      <div class="project__copy scroll-reveal">
+  <!-- 03.3 International dual-brand hotel · misma estructura que Duke Tower (pedido del cliente, 26-09) -->
+  <article class="duke-project project" id="hotel" aria-labelledby="hotel-title">
+    <div class="duke-project__inner">
+      <header class="duke-title scroll-reveal">
         <p class="project__num">PROJECT 03</p>
         <h3 id="hotel-title">INTERNATIONAL DUAL-BRAND HOTEL</h3>
-        <p class="project__place">Ogle, East Coast Demerara</p>
-        <ul class="project__figures">
-          <li><b>225+</b><span>rooms</span></li>
-          <li><b>2</b><span>brands</span></li>
-          <li><b>1</b><span>rooftop</span></li>
-        </ul>
-        <ol class="tracker tracker--left" aria-label="Project stage: permits filed and construction tender open">
-          <li class="done">DESIGN</li>
-          <li class="done">PERMITS FILED</li>
-          <li class="now" aria-current="step">TENDER OPEN</li>
-          <li>CONSTRUCTION</li>
-          <li>OPENING</li>
-        </ol>
-        <p class="project__desc">A dual-brand hotel for an international hospitality operator, with more than 225 rooms and a rooftop, next to Ogle International Airport. Design is complete, permits are filed and the construction tender is open.</p>
-        <p class="project__role"><span>OUR ROLE</span> Integrated design, covering architecture, structural engineering, MEP and full design coordination.</p>
-        <div class="duke-actions duke-actions--left">
+        <p>Ogle, East Coast Demerara</p>
+      </header>
+      <figure class="duke-hero scroll-reveal">
+        <img src="img/hotel-main.webp" srcset="img/hotel-main-800.webp 800w, img/hotel-main.webp 1280w" sizes="(max-width: 760px) 100vw, 980px" alt="Rendering of the international dual-brand hotel at sunset, with its timber-lattice façade" width="1280" height="720" loading="lazy" decoding="async">
+      </figure>
+
+      <ol class="tracker scroll-reveal" aria-label="Project stage: permits filed and construction tender open">
+        <li class="done">DESIGN</li>
+        <li class="done">PERMITS FILED</li>
+        <li class="now" aria-current="step">TENDER OPEN</li>
+        <li>CONSTRUCTION</li>
+        <li>OPENING</li>
+      </ol>
+
+      <div class="duke-role scroll-reveal">
+        <h4>OUR ROLE</h4>
+        <p><strong>INTEGRATED DESIGN.</strong> Architecture, structural engineering, MEP and full design coordination for a dual-brand hotel for an international hospitality operator, with more than 225 rooms and a rooftop, next to Ogle International Airport. Design is complete, permits are filed and the construction tender is open.</p>
+        <div class="duke-actions">
           <a class="duke-site" href="#contact" data-interest="Design and engineering services"><span>ASK ABOUT OUR DESIGN SERVICES</span><b aria-hidden="true">›</b></a>
+          <a class="duke-talk" href="https://wa.me/5927433853?text=Hi%20FASER%20GROUP%2C%20I%27d%20like%20to%20ask%20about%20your%20design%20services." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>TALK TO OUR TEAM</span></a>
         </div>
       </div>
-      <figure class="project__visual placeholder placeholder--hotel scroll-reveal" aria-label="Hotel rendering coming soon">
-        <div class="placeholder__plan" aria-hidden="true">
-          <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><g fill="none" stroke="currentColor" stroke-width="1"><path d="M60 250h280M100 250V90h200v160M100 120h200M100 150h200M100 180h200M100 210h200M150 90v160M200 90v160M250 90v160" opacity=".55"/><path d="M90 90h220" opacity=".9"/><path d="M0 270h400" opacity=".35"/></g></svg>
+
+      <div class="project-gallery scroll-reveal">
+        <h4>PROJECT PHOTOS</h4>
+        <div class="gallery-grid gallery-grid--4">
+          <button class="g-item g-tower" type="button" data-lb="img/hotel-bim.webp" data-cap="Coordinated BIM model: architecture, structure and MEP"><img src="img/hotel-bim.webp" alt="BIM model of the hotel showing architecture, structure and MEP coordinated together" loading="lazy" decoding="async" width="474" height="732"></button>
+          <button class="g-item g-a" type="button" data-lb="img/hotel-facade-dusk.webp" data-cap="Main façade at dusk"><img src="img/hotel-facade-dusk.webp" srcset="img/hotel-facade-dusk-600.webp 600w, img/hotel-facade-dusk.webp 1018w" sizes="(max-width: 760px) 100vw, 640px" alt="Hotel main façade and drop-off at dusk" loading="lazy" decoding="async" width="1018" height="358"></button>
+          <button class="g-item g-b" type="button" data-lb="img/hotel-facade.webp" data-cap="Entrance pergola and façade"><img src="img/hotel-facade.webp" alt="Hotel entrance pergola and timber-lattice façade" loading="lazy" decoding="async" width="525" height="357"></button>
+          <button class="g-item g-c" type="button" data-lb="img/hotel-lobby.webp" data-cap="Lobby and lift hall"><img src="img/hotel-lobby.webp" alt="Hotel lobby and lift hall with guests" loading="lazy" decoding="async" width="478" height="358"></button>
         </div>
-        <figcaption><span class="placeholder__tag">RENDERING</span><strong>Coming soon</strong><small>225+ rooms · rooftop · next to Ogle International Airport</small></figcaption>
-      </figure>
+        <p class="render-note">Renderings are illustrative.</p>
+      </div>
     </div>
   </article>
 </section>

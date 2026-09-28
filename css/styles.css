@@ -72,7 +72,7 @@ ul,ol{margin:0;padding:0;list-style:none}
 
 /* ---------- 01 · Hero ---------- */
 .hero{position:relative;min-height:100svh;padding-top:var(--header-h);overflow:hidden;background:#0d2436;color:#fff}
-.hero__background{position:absolute;inset:var(--header-h) 0 0;background:url("../img/hero-aerial.webp") center/cover no-repeat;transform:scale(1.035);animation:bgIn 5.5s var(--ease) forwards;will-change:transform}
+.hero__background{position:absolute;inset:var(--header-h) 0 0;background:url("../img/hero-guyana-1600.webp") center 55%/cover no-repeat;background-image:image-set(url("../img/hero-guyana-1600.webp") 1x,url("../img/hero-guyana.webp") 2x);transform:scale(1.035);animation:bgIn 5.5s var(--ease) forwards;will-change:transform}
 /* Overlay más firme abajo y a la izquierda: los datos inferiores quedaban sobre la ciudad */
 .hero__overlay{position:absolute;inset:var(--header-h) 0 0;background:linear-gradient(to bottom,rgba(8,28,44,.16) 0%,rgba(8,28,44,.04) 40%,rgba(4,14,22,.45) 74%,rgba(2,8,13,.8) 100%),linear-gradient(to right,rgba(8,28,44,.4),rgba(8,28,44,0) 62%)}
 .hero__inner{position:relative;z-index:2;width:min(var(--page-w),calc(100% - 48px));min-height:calc(100svh - var(--header-h));margin:0 auto;padding:clamp(72px,12vh,120px) 0 46px;display:flex;flex-direction:column}
@@ -282,15 +282,15 @@ h1{font-size:clamp(42px,5.4vw,72px);line-height:1.02;letter-spacing:.2px;margin:
 .hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
 .consent{display:flex;gap:12px;align-items:flex-start;font-size:14px;line-height:1.5;color:var(--ink-2);cursor:pointer}
 .consent input{width:20px;height:20px;min-height:0;margin:1px 0 0;accent-color:var(--red);flex:none;padding:0}
-.send-btn{position:relative;isolation:isolate;overflow:hidden;min-height:52px;border:0;background:var(--red);color:#fff;display:inline-flex;align-items:stretch;font-size:13px;font-weight:700;letter-spacing:1.5px;cursor:pointer}
+.send-btn{position:relative;isolation:isolate;overflow:hidden;min-height:52px;border:2px solid var(--red);background:var(--red);color:#fff;display:inline-flex;align-items:stretch;font-size:13px;font-weight:700;letter-spacing:1.5px;cursor:pointer}
 .send-btn span{display:flex;align-items:center;padding:0 22px}
-.send-btn i{position:relative;width:48px;border-left:1.5px solid rgba(255,255,255,.5)}
-.send-btn i:before,.send-btn i:after{content:"";position:absolute;right:17px;top:50%;width:13px;height:2px;background:#fff;transform-origin:right center}
+.send-btn i{position:relative;width:48px;border-left:1.5px solid currentColor;color:#fff;background:linear-gradient(#fff,#fff) no-repeat left center/0% 100%;transition:color .15s,background-size .15s}
+.send-btn i:before,.send-btn i:after{content:"";position:absolute;right:17px;top:50%;width:13px;height:2px;background:currentColor;transform-origin:right center}
 .send-btn i:before{transform:translateY(-50%) rotate(45deg)}
 .send-btn i:after{transform:translateY(-50%) rotate(-45deg)}
-.send-btn::before{content:"";position:absolute;z-index:-1;inset:0;background:#b3050f;transform:translateX(-101%);transition:transform .48s var(--ease)}
-.send-btn:focus-visible::before{transform:none}
-@media(hover:hover){.send-btn:hover::before{transform:none}}
+/* Mismo efecto que el resto: bloque de texto rojo + bloque de flecha que se llena de blanco con flecha roja */
+.send-btn:focus-visible i{color:var(--red);background-size:100% 100%;transition:color .2s .1s,background-size .32s var(--ease)}
+@media(hover:hover){.send-btn:hover i{color:var(--red);background-size:100% 100%;transition:color .2s .1s,background-size .32s var(--ease)}}
 .form__ok{padding:18px 20px;background:#eef7f0;border-left:3px solid #2f9e4f}
 .form__ok strong{display:block;font-size:17px}
 .form__ok p{margin:4px 0 0;font-size:15px;color:var(--ink-2)}
@@ -353,23 +353,22 @@ h1{font-size:clamp(42px,5.4vw,72px);line-height:1.02;letter-spacing:.2px;margin:
 
 
 /* ---------- Contáctenos siempre visible ---------- */
-.contact-btn{position:relative;isolation:isolate;overflow:hidden;min-height:44px;display:inline-flex;align-items:stretch;background:var(--red);color:#fff;font-size:12px;font-weight:700;letter-spacing:1.6px;white-space:nowrap}
+.contact-btn{position:relative;isolation:isolate;overflow:hidden;min-height:44px;display:inline-flex;align-items:stretch;border:2px solid var(--red);background:var(--red);color:#fff;font-size:12px;font-weight:700;letter-spacing:1.6px;white-space:nowrap}
 .contact-btn span{display:flex;align-items:center;padding:0 14px}
-.contact-btn i{position:relative;width:36px;border-left:1.5px solid rgba(255,255,255,.45)}
-.contact-btn i:before,.contact-btn i:after,.contact-bar__main i:before,.contact-bar__main i:after{content:"";position:absolute;right:13px;top:50%;width:10px;height:2px;background:#fff;transform-origin:right center}
+.contact-btn i{position:relative;width:36px;border-left:1.5px solid currentColor;color:#fff;background:linear-gradient(#fff,#fff) no-repeat left center/0% 100%;transition:color .15s,background-size .15s}
+.contact-btn i:before,.contact-btn i:after,.contact-bar__main i:before,.contact-bar__main i:after{content:"";position:absolute;right:13px;top:50%;width:10px;height:2px;background:currentColor;transform-origin:right center}
 .contact-btn i:before,.contact-bar__main i:before{transform:translateY(-50%) rotate(45deg)}
 .contact-btn i:after,.contact-bar__main i:after{transform:translateY(-50%) rotate(-45deg)}
-.contact-btn::before{content:"";position:absolute;z-index:-1;inset:0;background:#b3050f;transform:translateX(-101%);transition:transform .45s var(--ease)}
-.contact-btn:focus-visible::before{transform:none}
-@media(hover:hover){.contact-btn:hover::before{transform:none}}
+.contact-btn:focus-visible i{color:var(--red);background-size:100% 100%;transition:color .2s .1s,background-size .32s var(--ease)}
+@media(hover:hover){.contact-btn:hover i{color:var(--red);background-size:100% 100%;transition:color .2s .1s,background-size .32s var(--ease)}}
 .contact-bar{display:none}
 @media(max-width:1024px){
   .contact-btn{display:none}
   .contact-bar{position:fixed;z-index:90;left:0;right:0;bottom:0;display:flex;gap:10px;padding:9px 16px calc(9px + env(safe-area-inset-bottom));background:rgba(248,249,250,.97);box-shadow:0 -1px 0 var(--line),0 -10px 24px -18px rgba(0,0,0,.35)}
-  .contact-bar__main{flex:1;min-height:50px;display:flex;align-items:stretch;justify-content:space-between;background:var(--red);color:#fff;font-size:14px;font-weight:700;letter-spacing:1.6px}
+  .contact-bar__main{flex:1;min-height:50px;display:flex;align-items:stretch;justify-content:space-between;border:2px solid var(--red);background:var(--red);color:#fff;font-size:14px;font-weight:700;letter-spacing:1.6px}
   .contact-bar__main span{display:flex;align-items:center;padding:0 18px}
-  .contact-bar__main i{position:relative;width:50px;border-left:1.5px solid rgba(255,255,255,.45)}
-  .contact-bar__main:active{background:#b3050f}
+  .contact-bar__main i{position:relative;width:50px;border-left:1.5px solid currentColor;color:#fff;background:linear-gradient(#fff,#fff) no-repeat left center/0% 100%;transition:color .15s,background-size .15s}
+  .contact-bar__main:active i,.contact-bar__main:focus-visible i{color:var(--red);background-size:100% 100%;transition:color .2s .1s,background-size .32s var(--ease)}
   .contact-bar__wa{display:flex;align-items:center;gap:8px;min-height:50px;padding:0 14px 0 8px;border:1.5px solid #c3c9cf;font-size:12px;font-weight:700;letter-spacing:1px;color:var(--ink)}
   .contact-bar__wa svg{width:34px;height:34px}
   :root{--bar-h:calc(68px + env(safe-area-inset-bottom))}
@@ -482,7 +481,8 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
 .consent{padding:10px 0}
 
 /* Toque: respuesta inmediata con el mismo "relleno" de los botones de la diseñadora */
-.project-btn:active::before,.duke-site:active::before,.send-btn:active::before,.contact-btn:active::before{transform:none;transition-duration:.15s}
+.project-btn:active::before,.duke-site:active::before{transform:none;transition-duration:.15s}
+.send-btn:active i,.contact-btn:active i{color:var(--red);background-size:100% 100%}
 .project-btn:active,.duke-site:active{border-color:var(--red)}.duke-site:active{color:#fff}.project-btn:active i,.duke-site:active b{color:var(--red);background-size:100% 100%}
 
 /* Menú: desplazable y centrado sin cortar contenido (horizontal) */
@@ -519,7 +519,7 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
   .contact-bar{padding:9px 20px calc(9px + env(safe-area-inset-bottom))}
 
   /* Hero */
-  .hero__background{background-position:66% 50%}   /* en vertical: pista y bahía a la vista */
+  .hero__background{background-position:center 55%}
   .hero__inner{padding-top:40px}
   h1{font-size:clamp(32px,calc(11.8vw - 4.5px),42px);margin-bottom:20px}
   .actions{margin-top:26px}
@@ -635,9 +635,20 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
   .duke-actions a span{text-align:left}
   .what h2{font-size:clamp(26px,9vw,30px)}
 }
-@media(max-width:760px) and (orientation:portrait){.hero__background{background-image:url("../img/hero-aerial-m.webp");background-position:62% 50%}}
+@media(max-width:760px) and (orientation:portrait){.hero__background{background-image:url("../img/hero-guyana-m.webp");background-position:center 40%}}
 @media(max-width:370px){.logo{width:146px}}
 @media(max-width:1024px) and (max-height:500px) and (orientation:landscape){
   .wa-head{display:block;width:44px;height:44px}
   .reading-nav{right:calc(14px + env(safe-area-inset-right))}
+}
+
+/* ---------- Lotus Gardens y hotel con la estructura de Duke Tower (cliente, 26-09) ---------- */
+.duke-project--alt{background:var(--mist)}
+.duke-project+.duke-project:not(.duke-project--alt){border-top:1px solid var(--line)}
+.g-center img{object-position:50% 50%}
+.gallery-grid--4{grid-template-columns:.85fr 1fr 1fr;grid-template-areas:"t a a" "t b c"}
+.gallery-grid--4 .g-tower img{object-position:center}
+@media(max-width:760px){
+  .gallery-grid--4{grid-template-columns:1fr 1fr;grid-template-areas:"a a" "t b" "t c"}
+  .gallery-grid--4 .g-a{aspect-ratio:16/7}
 }

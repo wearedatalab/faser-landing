@@ -11,6 +11,12 @@
 @font-face{font-family:Metropolis;font-style:normal;font-weight:500;font-display:swap;src:url(https://cdn.jsdelivr.net/npm/@fontsource/metropolis@5.3.0/files/metropolis-latin-500-normal.woff2) format("woff2")}
 @font-face{font-family:Metropolis;font-style:normal;font-weight:600;font-display:swap;src:url(https://cdn.jsdelivr.net/npm/@fontsource/metropolis@5.3.0/files/metropolis-latin-600-normal.woff2) format("woff2")}
 @font-face{font-family:Metropolis;font-style:normal;font-weight:700;font-display:swap;src:url(https://cdn.jsdelivr.net/npm/@fontsource/metropolis@5.3.0/files/metropolis-latin-700-normal.woff2) format("woff2")}
+/* Montserrat para todo texto con minúsculas: Metropolis pierde el punto de la "i" en pantallas al 100 % (12–14 px, "E-mall")
+   → Metropolis queda solo en títulos, botones y etiquetas en mayúsculas, donde no hay puntos que perder. */
+@font-face{font-family:Montserrat;font-style:normal;font-weight:400;font-display:swap;src:url(https://cdn.jsdelivr.net/npm/@fontsource/montserrat@5.3.0/files/montserrat-latin-400-normal.woff2) format("woff2")}
+@font-face{font-family:Montserrat;font-style:normal;font-weight:500;font-display:swap;src:url(https://cdn.jsdelivr.net/npm/@fontsource/montserrat@5.3.0/files/montserrat-latin-500-normal.woff2) format("woff2")}
+@font-face{font-family:Montserrat;font-style:normal;font-weight:600;font-display:swap;src:url(https://cdn.jsdelivr.net/npm/@fontsource/montserrat@5.3.0/files/montserrat-latin-600-normal.woff2) format("woff2")}
+@font-face{font-family:Montserrat;font-style:normal;font-weight:700;font-display:swap;src:url(https://cdn.jsdelivr.net/npm/@fontsource/montserrat@5.3.0/files/montserrat-latin-700-normal.woff2) format("woff2")}
 
 :root{
   --red:#e30613;          /* rojo del logo: fondos, líneas, puntos */
@@ -32,7 +38,7 @@
 *{box-sizing:border-box}
 [hidden]{display:none!important}
 html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 12px);scroll-padding-bottom:calc(var(--bar-h) + 12px);-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
-body{margin:0;background:#fff;color:var(--ink);font-family:Metropolis,"Montserrat","Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+body{margin:0;background:#fff;color:var(--ink);font-family:Montserrat,"Helvetica Neue",Arial,sans-serif;font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
 a{text-decoration:none;color:inherit}
 img,svg{display:block;max-width:100%}
 img{height:auto}
@@ -740,3 +746,15 @@ body{padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-ri
   .next__steps{grid-template-columns:1fr;gap:28px}
 }
 @media(prefers-reduced-motion:reduce){.done-mark .dm-ring,.done-mark .dm-check{animation:none;stroke-dashoffset:0}}
+
+/* Crédito de diseño antes del copyright (cliente, 29-09) */
+.footer__copy{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px}
+.footer__credit strong{font-weight:700;color:var(--ink)}
+.footer__sep{color:#b8bdc3}
+@media(max-width:760px){.footer__copy{flex-direction:column;align-items:center;gap:4px}.footer__sep{display:none}}
+
+/* Metropolis solo en textos en MAYÚSCULAS (look original de la diseñadora) */
+h1,h2,h3,h4,.kicker,.what__eyebrow,.nav__link,.project-btn,.duke-site,.send-btn,.contact-btn,.contact-bar__main,.contact-bar__wa,
+.talk span,.projects-talk span,.duke-talk span,.menu nav a,.menu__wa,.lang,.tracker,.project__num,.project__figures b,.project__figures span,
+.stats b,.projects-band__copy>span,.details dt,.placeholder__tag,.sending__title,.next__steps b,.why__list b,.project__role span,
+.duke-role strong,.legal-note strong,.offices strong{font-family:Metropolis,Montserrat,"Helvetica Neue",Arial,sans-serif}

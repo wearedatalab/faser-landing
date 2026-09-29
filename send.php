@@ -107,7 +107,7 @@ if ($out = @fopen($csv, 'a')) {
 
 /* ---------- correo ---------- */
 $rows = [
-    ['Nombre / Name', $lead['name']], ['Correo / Email', $lead['email']], ['Teléfono / Phone', $lead['phone']],
+    ['Nombre / Name', $lead['name']], ['Correo / E-mail', $lead['email']], ['Teléfono / Phone', $lead['phone']],
     ['Empresa / Company', $lead['company'] ?: '—'], ['Ubicación / Based in', $lead['based']], ['Contacto preferido / Best way to reach', $lead['pref']],
     ['Interés / Interested in', $lead['interest']], ['Idioma de la página / Page language', strtoupper($lead['lang'])],
 ];

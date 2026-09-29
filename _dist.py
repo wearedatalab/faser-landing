@@ -17,7 +17,7 @@ LEADS_TO = [e.strip() for e in os.environ.get('LEADS_TO', 'Info@fasergroup.com,j
 FROM_EMAIL = os.environ.get('FROM_EMAIL', 'no-reply@fasergroup.com')
 VERSION = datetime.datetime.now().strftime('%Y%m%d%H%M')
 
-KEEP = ['index.html', 'es', 'css', 'js', 'img', 'sitemap.xml', 'send.php', 'config.example.php', '.htaccess']
+KEEP = ['index.html', 'thank-you.html', 'es', 'css', 'js', 'img', 'sitemap.xml', 'send.php', 'config.example.php', '.htaccess']
 out = os.path.join('dist', FOLDER)
 if os.path.exists('dist'): shutil.rmtree('dist')
 os.makedirs(out)

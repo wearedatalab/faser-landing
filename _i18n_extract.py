@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Extrae los textos traducibles de index.html (inglés = fuente) → i18n/strings-en.json"""
+"""Extrae los textos traducibles de index.html y thank-you.html (inglés = fuente) → i18n/strings-en.json"""
 import json, os, re
 from bs4 import BeautifulSoup, NavigableString, Comment
 ATTRS = ['alt', 'aria-label', 'placeholder', 'title', 'data-cap', 'data-interest', 'content']
@@ -27,6 +27,8 @@ def strings(html):
 
 if __name__ == '__main__':
     os.makedirs('i18n', exist_ok=True)
-    s = strings(open('index.html', encoding='utf-8').read())
+    s = []
+    for f in ('index.html', 'thank-you.html'):
+        if os.path.exists(f): s += [x for x in strings(open(f, encoding='utf-8').read()) if x not in s]
     json.dump(s, open('i18n/strings-en.json', 'w', encoding='utf-8'), ensure_ascii=False, indent=1)
     print(len(s), 'textos')

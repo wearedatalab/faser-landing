@@ -36,7 +36,7 @@ MAIN = '''<main id="main">
     </ol>
     <div class="next__wa">
       <p>Need an answer sooner?</p>
-      <a class="duke-talk" href="https://wa.me/5927433853?text=Hi%20FASER%20GROUP%2C%20I%20just%20sent%20you%20a%20message%20from%20your%20website." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>TALK TO OUR TEAM ON WHATSAPP</span></a>
+      <a class="duke-talk" href="https://wa.me/5927229990?text=Hi%20FASER%20GROUP%2C%20I%20just%20sent%20you%20a%20message%20from%20your%20website." target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-wa"/></svg><span>TALK TO OUR TEAM ON WHATSAPP</span></a>
     </div>
   </div>
 </section>

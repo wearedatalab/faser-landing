@@ -4,7 +4,7 @@
   const $ = (s, c = d) => c.querySelector(s);
   const $$ = (s, c = d) => [...c.querySelectorAll(s)];
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const WA = '5927433853';
+  const WA = '5927229990';
   const ES = (root.lang || '').startsWith('es');
   const T = ES ? {
     name: 'Escribe tu nombre completo.', email: 'Escribe un correo válido.', phone: 'Escribe un teléfono o WhatsApp.',
